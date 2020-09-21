@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>servletTest</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <!-- 배포 서술자에 서블릿 등록하기 -->
+  <servlet>
+  	<servlet-name>servletTest01</servlet-name> <!-- 서블릿 이름 성정 -->
+  	<servlet-class>kr.or.ddit.basic.ServletTest01</servlet-class>	<!-- 실제 실핼할 클래스를 패키지명까지 포함해서 기술한다. -->
+  </servlet>
+  
+  	<!-- 클라이언트의 요청 URL에 맞는 서블릿을 매칭 시켜준다. -->
+  <servlet-mapping>
+  	<servlet-name>servletTest01</servlet-name>
+  	<url-pattern>/servletTest01.do</url-pattern>
+  </servlet-mapping>
+  
+</web-app>
