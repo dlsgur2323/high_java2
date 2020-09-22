@@ -9,17 +9,16 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-  
-  <!-- 배포 서술자에 서블릿 등록하기 -->
   <servlet>
-  	<servlet-name>servletTest01</servlet-name> <!-- 서블릿 이름 성정 -->
-  	<servlet-class>kr.or.ddit.basic.ServletTest01</servlet-class>	<!-- 실제 실핼할 클래스를 패키지명까지 포함해서 기술한다. -->
+    <servlet-name>servletTest01</servlet-name>
+    <servlet-class>kr.or.ddit.basic.ServletTest01</servlet-class>
   </servlet>
-  
-  	<!-- 클라이언트의 요청 URL에 맞는 서블릿을 매칭 시켜준다. -->
   <servlet-mapping>
-  	<servlet-name>servletTest01</servlet-name>
-  	<url-pattern>/servletTest01.do</url-pattern>
+    <servlet-name>servletTest01</servlet-name>
+    <url-pattern>/servletTest01.do</url-pattern>
   </servlet-mapping>
-  
+  <context-param>
+    <param-name>FileName</param-name>
+    <param-value>d:/d_other/test.txt</param-value>
+  </context-param>
 </web-app>
