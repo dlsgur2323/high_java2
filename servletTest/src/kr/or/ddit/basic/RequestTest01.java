@@ -3,6 +3,8 @@ package kr.or.ddit.basic;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Enumeration;
+import java.util.Iterator;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -66,6 +68,8 @@ public class RequestTest01 extends HttpServlet {
 		out.println("2. 요청 메서드 : " + request.getMethod() + "<br>");
 		out.println("3. ContextPath : " + request.getContextPath() + "<br>");
 		out.println("4. 프로토콜 : " + request.getProtocol() + "<br>");
+		out.println("5. 요청 URL : " + request.getRequestURL() + "<br>");
+		out.println("6. 요청 URI : " + request.getRequestURI() + "<br>");
 		out.println("</td></td></table>");
 		
 		out.println("<hr>");
@@ -79,6 +83,42 @@ public class RequestTest01 extends HttpServlet {
 			out.println("<li>" + paramName + "</li>");
 		}
 		out.println("</ul>");
+		
+		// getParameterMap()메서드 ==> 전송된 모든 파라미터를 Map객체에 담아서 반환한다.
+		// 			이 Map객체의 key값은 "파라미터명"이며 자료형은 String형이고,
+		//					 value값은 해당 파라미터의 "값"이며 자료형은 String[]형 이다.
+		
+		out.println("<h2>getParameterMap() 메서드 처리결과</h2>");
+		out.println("<table border='1'>");
+		out.println("<tr><td>파라미터 Name</td><td>파라미터 value</td></tr>");
+		
+		Map<String, String[]> paramMap = request.getParameterMap();
+		
+		// Map의 key값들을 Iterator로 가져온다.
+		Iterator<String> it = paramMap.keySet().iterator();
+		
+		while(it.hasNext()){
+			String paramName = it.next();	// key값 즉, 파라미터명을 구한다.
+			out.println("<tr><td>" + paramName + "</td>");
+			out.println("<td>");
+			
+			String[] paramValues = paramMap.get(paramName); // value값 즉, 파라미터 값을 구한다.
+			if(paramValues == null || paramValues.length == 0){ // 파라미터가 없는 경우
+				
+			} else if(paramValues.length == 1){ // 파라미터가 배열이 아닌 경우 (즉, 파라미터명이 1개인 경우)
+				out.println(paramValues[0]);
+			} else { // 파라미터가 배열인 경우(즉, 파라미터명이 2개 이상인 경우)
+				for(int i = 0; i < paramValues.length; i++){
+					if(i > 0) out.println(", "); // 값과 값 사이에 쉼표(,) 넣기
+					out.println(paramValues[i]);
+				}
+			}
+			
+			out.println("</td></tr>");
+			
+		} // while문 끝..
+		
+		out.println("</table>");
 		
 		out.println("</body>");
 		out.println("</html>");
