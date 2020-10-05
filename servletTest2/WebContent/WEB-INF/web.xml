@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>servletTest</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <servlet>
+    <servlet-name>driverLoader</servlet-name>
+    <servlet-class>kr.or.ddit.util.DriverLoader</servlet-class>
+    <load-on-startup>1</load-on-startup>
+    <!-- 서버가 실행될 때 자동으로 실행되는 서블릿을 설정할 때 사용한다. -->
+    <!-- 숫자가 작을 수록 우선순위가 높다. -->
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>driverLoader</servlet-name>
+    <url-pattern>/</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>testController</servlet-name>
+    <servlet-class>kr.or.ddit.controller.TestController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>testController</servlet-name>
+    <url-pattern>*.do</url-pattern>
+  </servlet-mapping>
+  
+  
+</web-app>
