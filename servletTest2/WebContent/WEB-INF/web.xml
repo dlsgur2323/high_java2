@@ -17,14 +17,10 @@
     <!-- 서버가 실행될 때 자동으로 실행되는 서블릿을 설정할 때 사용한다. -->
     <!-- 숫자가 작을 수록 우선순위가 높다. -->
   </servlet>
-  <servlet-mapping>
-    <servlet-name>driverLoader</servlet-name>
-    <url-pattern>/</url-pattern>
-  </servlet-mapping>
   
   <servlet>
     <servlet-name>testController</servlet-name>
-    <servlet-class>kr.or.ddit.controller.TestController</servlet-class>
+    <servlet-class>kr.or.ddit.controller.WebController</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>testController</servlet-name>

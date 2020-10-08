@@ -55,6 +55,11 @@ public interface IMemberDao {
 	 * @return
 	 */
 	public int updateMember2(Map<String, String> param);
+	
+	
+	public MemberVO getMember(String memId);
+	
+	
 }
 
 
